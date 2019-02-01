@@ -1,0 +1,66 @@
+{
+  "name": "koa-ts-boiler",
+  "version": "1.0.0",
+  "main": "app/main.js",
+  "author": "trepz",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bcrypt": "^3.0.3",
+    "cross-env": "^5.2.0",
+    "dotenv": "^6.2.0",
+    "jsonwebtoken": "^8.4.0",
+    "kcors": "^2.2.2",
+    "knex": "^0.16.3",
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-helmet": "^4.0.0",
+    "koa-jwt": "^3.5.1",
+    "koa-logger": "^3.2.0",
+    "koa-response-time": "^2.1.0",
+    "koa-router": "^7.4.0",
+    "module-alias": "^2.1.0",
+    "moment": "^2.24.0",
+    "mysql": "^2.16.0",
+    "query-string": "^6.2.0",
+    "yup": "^0.26.10"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^6.1.0",
+    "@types/jest": "^23.3.13",
+    "@types/kcors": "^2.2.3",
+    "@types/knex": "^0.15.1",
+    "@types/koa": "^2.0.48",
+    "@types/koa-bodyparser": "^4.2.1",
+    "@types/koa-helmet": "^3.1.2",
+    "@types/koa-logger": "^3.1.1",
+    "@types/koa-response-time": "^2.0.1",
+    "@types/koa-router": "^7.0.39",
+    "@types/node": "^10.12.19",
+    "@types/yup": "^0.26.7",
+    "concurrently": "^4.1.0",
+    "jest": "^24.0.0",
+    "nodemon": "^1.18.9",
+    "ts-jest": "^23.10.5",
+    "typescript": "^3.2.4"
+  },
+  "_moduleAliases": {
+    "@": "app"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  },
+  "scripts": {
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "dev": "concurrently -k \"yarn watch-ts\" \"nodemon app/main\"",
+    "test": "jest",
+    "migrate:make": "./node_modules/knex/bin/cli.js --knexfile=./database/knexfile.js migrate:make",
+    "migrate:rollback": "./node_modules/knex/bin/cli.js --knexfile=./database/knexfile.js migrate:rollback",
+    "migrate": "./node_modules/knex/bin/cli.js --knexfile=./database/knexfile.js migrate:latest",
+    "seed:make": "./node_modules/knex/bin/cli.js --knexfile=./database/knexfile.js seed:make",
+    "seed:run": "./node_modules/knex/bin/cli.js --knexfile=./database/knexfile.js seed:run"
+  }
+}
